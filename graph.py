@@ -9,10 +9,12 @@ if __name__ == "__main__":
     fig, ax1 = plt.subplots()
 
     df1 = pd.read_csv(sys.argv[1])
+    df1 = df1.sort_values(by='n')
     ax1.plot(df1['n'].values, df1['time'].values, label=sys.argv[1])
 
     if len(sys.argv) > 2:
         df2 = pd.read_csv(sys.argv[2])
+        df2 = df2.sort_values(by='n')
         ax1.plot(df2['n'].values, df2['time'].values, label=sys.argv[2])
    # ax2.plot(df2['n'].values, df2['time'].values, label=sys.argv[2])
     fig.legend()
